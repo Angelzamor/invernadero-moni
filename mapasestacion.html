@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="/estilos.css">
+ <link rel="stylesheet" href="/normalize.css">
+  <script src="https://unpkg.com/leaflet@1.0.2/dist/leaflet.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.2/dist/leaflet.css" />
+	<style>
+  #map { 
+    width: 100%;
+    height: 580px;
+    box-shadow: 5px 5px 5px #888;
+ }
+</style>
+
+</head>
+	<body>
+    
+<header class="hero">
+        <nav class="nav container">
+            <div class="nav__logo">
+                <h2 class="nav__title">Invernadero.</h2>
+            </div>
+
+            <ul class="nav__link nav__link--menu">
+                <img src="/public/img/images/close.svg" class="nav__close">
+            </ul>
+
+            <div class="nav__menu">
+                <img src="/public/css/img/images/menu.svg" class="nav__img">
+            </div>
+        </nav>
+
+        <section class="hero__container container">
+            <h1 class="hero__title">Inovacion en la agricultura.</h1>
+            <p class="hero__paragraph">¡Descubre el futuro de la agricultura con nuestro innovador Invernadero Inteligente! 🌱✨ Diseñado para optimizar cada fase del cultivo, desde la siembra 
+               hasta la cosecha, nuestra tecnología de punta lleva la agricultura a nuevas alturas.</p>
+            <a href="/index.html" class="cta">Graficas.</a>
+        </section>
+    </header>
+		<div id = 'map'>
+		</div>
+	</body>
+  <script>
+  var map = L.map('map').
+     setView([19.24599732887588, -103.72153434294742],
+     15);
+
+     L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+maxZoom: 18
+}).addTo(map);
+
+L.control.scale().addTo(map);
+
+const marcador = L.marker([19.249848923217833, -103.68782702922127],{draggable: true}).addTo(map);
+
+L.marker([19.197528998146858, -103.81754248717283],{draggable: true}).addTo(map);
+
+// Crear un oyente para el evento "click"
+const oyente = marcador.on("click", function() {
+  // Redirigir a la página web
+  window.location.href = "/index.html";
+});
+
+</script>
+</html>
